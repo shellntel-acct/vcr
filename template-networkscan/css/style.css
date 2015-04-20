@@ -1,0 +1,250 @@
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300,200);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+/*
+	Halcyonic by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+/*********************************************************************************/
+/* Global                                                                        */
+/*********************************************************************************/
+
+/* Basic */
+
+	body
+	{
+		background: #D4D9DD url('images/bg03.jpg');
+	}
+
+	body, input, textarea
+	{
+		color: #474f51;
+		font-size: 13.5pt;
+		/*font-family: Verdana;*/
+		font-family: 'Yanone Kaffeesatz';
+		line-height: 1.6em;
+		font-weight: 300;
+	}
+
+	ul, ol, p, dl
+	{
+		margin: 0 0 2em 0;
+	}
+
+	td
+	{
+		padding-left: 5px;
+	}
+
+	a
+	{
+		text-decoration: underline;
+	}
+	
+	a:hover
+	{
+		text-decoration: none;
+	}
+
+	section > :last-child, .last-child
+	{
+		margin-bottom: 0 !important;
+	}
+
+/* Multi-use */
+
+	.link-list
+	{
+	}
+	
+		.link-list li
+		{
+			padding: 0.2em 0 0.2em 0;
+		}
+		
+		.link-list li:first-child
+		{
+			padding-top: 0 !important;
+			border-top: 0 !important;
+		}
+		
+		.link-list li:last-child
+		{
+			padding-bottom: 0 !important;
+			border-bottom: 0 !important;
+		}
+
+		#content .link-list li
+		{
+			border-bottom: solid 1px #e2e6e8;
+		}
+
+		#footer .link-list li
+		{
+			border-top: solid 1px #e0e4e6;
+			border-bottom: solid 1px #b5bec3;
+		}
+
+	.quote-list
+	{
+	}
+	
+		.quote-list li
+		{
+			padding: 1em 0 1em 0;
+			overflow: hidden;
+		}
+		
+		.quote-list li:first-child
+		{
+			padding-top: 0 !important;
+			border-top: 0 !important;
+		}
+
+		.quote-list li:last-child
+		{
+			padding-bottom: 0 !important;
+			border-bottom: 0 !important;
+		}
+
+			.quote-list li img
+			{
+				float: left;
+			}
+
+			.quote-list li p
+			{
+				margin: 0 0 0 90px;
+				font-size: 1.2em;
+				font-style: italic;
+			}
+			
+			.quote-list li span
+			{
+				display: block;
+				margin-left: 90px;
+				font-size: 0.9em;
+				font-weight: 400;
+			}
+
+		#content .quote-list li
+		{
+			border-bottom: solid 1px #e2e6e8;
+		}
+
+		#footer .quote-list li
+		{
+			border-top: solid 1px #e0e4e6;
+			border-bottom: solid 1px #b5bec3;
+		}
+	
+	.check-list
+	{
+	}
+
+		.check-list li
+		{
+			padding: 0.7em 0 0.7em 45px;
+			font-size: 1.2em;
+			background: url('images/icon-checkmark.png') 0px 1.05em no-repeat;
+		}
+		
+		.check-list li:first-child
+		{
+			padding-top: 0 !important;
+			border-top: 0 !important;
+			background-position: 0 0.3em;
+		}
+
+		.check-list li:last-child
+		{
+			padding-bottom: 0 !important;
+			border-bottom: 0 !important;
+		}
+
+		#content .check-list li
+		{
+			border-bottom: solid 1px #e2e6e8;
+		}
+
+		#footer .check-list li
+		{
+			border-top: solid 1px #e0e4e6;
+			border-bottom: solid 1px #b5bec3;
+		}
+		
+	.feature-image
+	{
+		display: block;
+		margin: 0 0 2em 0;
+		outline: 0;
+	}
+	
+		.feature-image img
+		{
+			display: block;
+			width: 100%;
+		}
+
+	.bordered-feature-image
+	{
+		display: block;
+		background: #fff url('images/bg04.png');
+		padding: 10px;
+		box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.15);
+		margin: 0 0 1.5em 0;
+		outline: 0;
+	}
+	
+		.bordered-feature-image img
+		{
+			display: block;
+			width: 100%;
+		}
+	
+	.button-big
+	{
+		display: inline-block;
+		background: #ed391b;
+		color: #fff;
+		text-decoration: none;
+		font-size: 1.75em;
+		font-weight: 300;
+		padding: 15px 45px 15px 45px;
+		outline: 0;
+		border-radius: 10px;
+		box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.75), inset 0px 2px 0px 0px rgba(255,192,192,0.5), inset 0px 0px 0px 2px rgba(255,96,96,0.85), 3px 3px 3px 1px rgba(0,0,0,0.15);
+		background-image: -moz-linear-gradient(top, #ed391b, #ce1a00);
+		background-image: -webkit-linear-gradient(top, #ed391b, #ce1a00);
+		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ed391b), to(#ce1a00));
+		background-image: -ms-linear-gradient(top, #ed391b, #ce1a00);
+		background-image: -o-linear-gradient(top, #ed391b, #ce1a00);
+		background-image: linear-gradient(top, #ed391b, #ce1a00);
+		text-shadow: -1px -1px 1px rgba(0,0,0,0.5);
+	}
+
+	.button-big:hover
+	{
+		background: #fd492b;
+		box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.75), inset 0px 2px 0px 0px rgba(255,192,192,0.5), inset 0px 0px 0px 2px rgba(255,96,96,0.85), 3px 3px 3px 1px rgba(0,0,0,0.15);
+		background-image: -moz-linear-gradient(top, #fd492b, #de2a10);
+		background-image: -webkit-linear-gradient(top, #fd492b, #de2a10);
+		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fd492b), to(#de2a10));
+		background-image: -ms-linear-gradient(top, #fd492b, #de2a10);
+		background-image: -o-linear-gradient(top, #fd492b, #de2a10);
+		background-image: linear-gradient(top, #fd492b, #de2a10);
+	}
+
+	.button-big:active
+	{
+		background: #ce1a00;
+		box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.75), inset 0px 2px 0px 0px rgba(255,192,192,0.5), inset 0px 0px 0px 2px rgba(255,96,96,0.85), 3px 3px 3px 1px rgba(0,0,0,0.15);
+		background-image: -moz-linear-gradient(top, #ce1a00, #ed391b);
+		background-image: -webkit-linear-gradient(top, #ce1a00, #ed391b);
+		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ce1a00), to(#ed391b));
+		background-image: -ms-linear-gradient(top, #ce1a00, #ed391b);
+		background-image: -o-linear-gradient(top, #ce1a00, #ed391b);
+		background-image: linear-gradient(top, #ce1a00, #ed391b);
+	}
