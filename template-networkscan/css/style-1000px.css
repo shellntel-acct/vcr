@@ -1,0 +1,122 @@
+/*
+	Halcyonic by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+/*********************************************************************************/
+/* 1000px (> 480px && < 1200px)                                                  */
+/*********************************************************************************/
+
+/* Basic */
+
+	body
+	{
+		min-width: 960px;
+	}
+
+/* Multi-use */
+
+	.check-list
+	{
+	}
+
+		.check-list li
+		{
+			font-size: 1em;
+			line-height: 2em;
+		}
+
+	.quote-list
+	{
+	}
+	
+		.quote-list li
+		{
+			padding: 1em 0 1em 0;
+		}
+		
+			.quote-list li img
+			{
+				width: 60px;
+			}
+		
+			.quote-list li p
+			{
+				margin: 0 0 0 80px;
+				font-size: 1em;
+				font-style: italic;
+				line-height: 1.8em;
+			}
+			
+			.quote-list li span
+			{
+				display: block;
+				margin-left: 80px;
+				font-size: 0.8em;
+				font-weight: 400;
+				line-height: 1.8em;
+			}
+
+	.feature-image
+	{
+		margin: 0 0 1em 0;
+	}
+
+	.button-big
+	{
+		font-size: 1.5em;
+		padding: 10px 35px 10px 35px;
+	}
+
+/* Banner */
+	
+	#banner
+	{
+	}
+
+		#banner p
+		{	
+			font-size: 1.75em;
+		}
+
+/* Header */
+
+	#header
+	{
+	}
+
+		#header h1
+		{
+			font-size: 2.25em;
+		}
+
+		#header nav
+		{
+		}
+	
+			#header nav a
+			{
+				font-size: 1.1em;
+			}
+
+/* Content */
+
+	#content
+	{
+	}
+	
+		#content h2
+		{
+			font-size: 1.4em;
+		}
+
+		#content h3
+		{
+			font-size: 1.1em;
+		}
+		
+		#content header
+		{
+			margin: 0 0 1.25em 0;
+		}

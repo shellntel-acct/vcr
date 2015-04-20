@@ -1,0 +1,251 @@
+/*CUSTOM SYNERCOMM*/
+
+.vulnlabel {
+    height: 21px;
+    width: 77px;
+    color: #FFF;
+    font-size: 11px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    line-height: 21px;
+    background-origin: padding-box;
+    background-position: 0px 0px;
+    background-repeat: repeat;
+    background-size: auto auto;
+    float: left;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+strong {
+    font-weight: bold;
+    font-size: 15px;
+    color: #474F51;
+}
+
+tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom-: 1px solid #C1C3D1;
+  color:#474F51;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+ 
+tr:first-child {
+  border-top:none;
+}
+
+tr:last-child {
+  border-bottom:none;
+}
+ 
+tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+ 
+tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+ 
+td {
+  background:#FFFFFF;
+  padding:10px;
+  text-align:left;
+  vertical-align:middle;
+  font-size:13px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
+.critical {
+    background-color: #D43F3A;
+}
+
+.high {
+    background-color: #EE9336;
+}
+
+.medium {
+    background-color: #FDC431;
+}
+
+.low {
+    background-color: #4CAE4C;
+}
+
+.info {
+    background-color: #357ABD;
+}
+
+hr {
+  background-color: #E2E6E8;
+  border-color: #e2e6e8;
+  color: #E2E6E8;
+}
+
+.ui-state-highlight-blue {
+  border: 1px solid #4C9ED9;
+  background-color: #C0E1F9;
+}
+
+.body-dashboard #tabips td a {
+  font-family: Verdana;
+  font-size: 16px;
+}
+
+.body-dashboard #tabips .critbg a, #tablegend td.critbg {
+  color: #f1f1f1;
+}
+
+.body-dashboard #tabips .infobg a, #tablegend td.infobg {
+  color: #f1f1f1;
+}
+
+.body-dashboard #tabips td, #tablegend td {
+  padding:5px;
+  text-align:left;
+  vertical-align:middle;
+  font-size:18px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+  font-family: inherit;
+}
+
+.body-dashboard #tabips td.critbg, #tablegend td.failedbg {
+    /*background-color: #DBA3A2;*/
+    background-color: #D43F3A;
+    color: white;
+}
+
+.body-dashboard #tabips td.highbg, #tablegend td.errorbg {
+    /*background-color: #EDCEAF;*/
+    background-color: #EE9336;
+}
+
+.body-dashboard #tabips td.medbg, #tablegend td.warningbg {
+    /*background-color: #FFECBC;*/
+    background-color: #FDC431;
+}
+
+.body-dashboard #tabips td.lowbg, #tablegend td.passedbg {
+    /*background-color: #B3E5B3;*/
+    background-color: #4CAE4C;
+}
+
+.body-dashboard #tabips td.infobg, #tablegend td.infobg {
+    /*background-color: #A8C4DD;*/
+    background-color: #357ABD;
+}
+
+.body-dashboard #tabips td.dunnobg, #tablegend td.dunnobg {
+    b/*ackground-color: #DBA3A2;*/
+}
+
+.body-dashboard #tabips a {
+    color: #474F51;
+    
+}
+
+.body-dashboard #tabips a.critfg {
+    /*color: #D43F3A;*/
+    /*color: #474F51;*/
+    color: white;
+}
+
+.body-dashboard #tabips a.highfg {
+    /*color: #EE9336;*/
+    color: #474F51;
+}
+
+.body-dashboard #tabips a.medfg {
+    /*color: #FDC431;*/
+    color: #474F51;
+}
+
+.body-dashboard #tabips a.lowfg {
+    /*color: #4CAE4C;*/
+    color: #474F51;
+}
+
+.body-dashboard #tabips a.infofg {
+    /*color: #357ABD;*/
+    color: #474F51;
+}
+
+.body-dashboard #tabips a.dunnofg {
+    /*color: #357ABD;*/
+    color: #474F51;
+}
+
+.toggle {
+	float:left;
+}
+
+.link{
+    text-decoration:underline;
+    color: #4679BD;
+    cursor:pointer;
+}
+
+.failicon {
+    background-image: url("images/ui-icons_cd0a0a_256x240.png");
+    background-position: -32px -192px;
+    width: 16px;
+	height: 16px;
+}
+
+.infoicon {
+    background-image: url("images/ui-icons_228ef1_256x240.png");
+    background-position: -32px -192px;
+    width: 16px;
+	height: 16px;
+}
+
+.passicon {
+    background-image: url("images/ui-icons_8DC262_256x240.png");
+    background-position: -208px -192px;
+    width: 16px;
+	height: 16px;
+}
+
+.erroricon {
+    background-image: url("images/ui-icons_ef8c08_256x240.png");
+    background-position: 0 -144px;
+    width: 16px;
+	height: 16px;
+}
+
+.policyvalue {
+    border: 1px solid #006ABA;
+    background-color: #cae6fb;
+    color: #006ABA;
+    float: left;
+    width: 50%;
+    padding: 5px;
+}
+
+.actualvaluefailed {
+    float: right;
+    width: 50%;
+    padding: 5px;
+    color: #CD0A0A;
+    background-color: #FEF1EC;
+    border: 1px solid #CD0A0A;
+}
+
+.actualvaluepassed {
+    float: right;
+    width: 50%;
+    padding: 5px;
+    color: #50ab05;
+    background-color: #d2f3b7;
+    border: 1px solid #50ab05;
+}

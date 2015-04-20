@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<!--
+	Halcyonic by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>SynerComm Audit Report</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<script src="js/jquery.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/sc.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="css/jquery-ui.structure.css" />
+        <link rel="stylesheet" href="css/jquery-ui.theme.css" />
+        <link rel="stylesheet" href="css/sc.css" />
+	</head>
+	<body class="subpage body-dashboard">
+
+		<!-- Header -->
+			<div id="header-wrapper">
+				<header id="header" class="container">
+					<div class="row">
+						<div class="12u">
+
+							<!-- Logo -->
+								<div style="margin-top: 40px;" id="divlogo">
+									<img id="logo" src="images/companylogo.png" alt="logo"/>
+									<h2 style="color: white;">Audit Report Findings. Generated on |GENERATEDDATE|</h2>
+								</div>
+								
+							
+								<nav id="nav">
+									<a href="reportsbyvuln/allvulns.html" onclick="showLoading();">Vulnerability Report</a>
+								</nav>
+							
+
+						</div>
+					</div>
+				</header>
+			</div>
+
+		<!-- Content -->
+			<div id="content-wrapper">
+				<div id="content">
+					<div class="container">
+						<div id="loading" class="row" style="display: none;">
+							<div class="12u ui-state-highlight-blue" style="padding:0; margin-left: 20px; height: 35px;">
+								<p style="text-align: center;">Loading (takes a moment)...</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="3u">
+								
+								<!-- Sidebar -->
+									<section>
+										<header>
+											<h2>Summary</h2>
+										</header>
+										<ul class="link-list">
+											<li>Total Findings: <span style="color: #C25952;">|TOTALFINDINGS|</span></li>
+											<li>Critical: <span style="color: #C25952;">|TOTALCRITICAL|</span></li>
+											<li>High: <span style="color: #C25952;">|TOTALHIGH|</span></li>
+											<li>Medium: <span style="color: #C25952;">|TOTALMEDIUM|</span></li>
+											<li>Low: <span style="color: #C25952;">|TOTALLOW|</span></li>
+											<li>Informational: <span style="color: #C25952;">|TOTALINFO|</span></li>
+										</ul>
+									</section>
+									<section>
+										<header>
+											<h2>At-A-Glance</h2>
+											<hr>
+										</header>
+										<div>
+											<img src="images/highlevel.png" />
+										</div>
+									</section>
+
+							</div>
+							<div class="9u important(collapse)">
+								
+								<!-- Main Content -->
+									<section>
+										<header>
+											<h2>|COMPANYNAME| - Nessus Vulnerability Scan</h2>
+											<br />
+											<h3>Introduction</h3>
+											<p>
+												Firstly, thank you for choosing SynerComm. We truly do appreciate the opportunity to serve your organization. This report contains the results of a recent vulnerability scan which was run against your systems, and contains sensitive data which should be treated as highly confidential.
+											</p>
+											<p>
+												SynerComm uses best of breed tools and techniques in order to assess your organization's vulnerabilities. One of these utilities is
+												the <a href="http://www.tenable.com/products/nessus-vulnerability-scanner">Nessus Vulnerability Scanner</a>, one of the most well known and widely used vulnerability scanners in the world. Nessus scans provide an indepth look at a target network's vulnerabilities, allowing an organization to effectively understand and prioritize remediation efforts.
+											</p>
+											<h3>Details</h3>
+											<p>
+												Nessus breaks down all vulnerabilities into one of 5 categories: Critical, High, Medium, Low, and Informational. These categories are based on the <a href="http://www.first.org/cvss">Common Vulnerability Scoring System</a> (CVSS). A presentation detailing the CVSS 2.0 standard can be found <a href="https://www.first.org/cvss/cvss_basic-2.0.pdf">here</a>.
+												<br /><br />
+												The below table describes each classification.
+												<br />
+												<table id ="tablegend">
+													<tr>
+														<td class="critbg">Critical</td>
+														<td>Exploitation of the vulnerability is straightforward and widely known to attackers, potentially resulting in administrative or root level privileges. Unless other mitigating controls are in place, it is advised to patch or upgrade these vulnerabilities as soon as possible. </td>
+													</tr>
+													<tr>
+														<td class="highbg">High</td>
+														<td>High-severity vulnerabilities are widely known to attackers, but may be difficult to exploit. Successful exploitation may not immediately result in administrative privileges or sensitive data loss.</td>
+													<tr>
+														<td class="medbg">Medium</td>
+														<td>A vulnerability with a "Medium" classification poses difficulty to an attacker, often requiring the attacker and victim to be on the same local network. Medium severity vulnerabilities may also affect obscure applications or configurations, with successful exploitation providing very limited access.</td>
+													</tr>
+													<tr>
+														<td class="lowbg">Low</td>
+														<td>Low severity vulnerabilities typically have little impact on an organization's business or operations. Generally Low severity vulnerabilities are the result of simple misconfigurations that are easily corrected. Exploitation does not result in unauthorized access or data loss.</td>
+													</tr>
+													<tr>
+														<td class="infobg">Informational</td>
+														<td>The Informational category describes information that may be useful, however not related to a vulnerability. An example
+															is an informational message describing the open ports found on a system. Informational messages are not classified as vulnerabilities and do not affect the percentages on the "At-A-Glance" chart on the left.</td>
+													</tr>
+												</table>
+											</p>
+											<br />
+										</header>
+                                        <div>
+                                          <h3>Reports By Host</h3>
+                                          <p>The below table categorizes hosts by severity. For a host to be designated with a certain color (severity), it must have at least one finding of that severity, and no findings of the severity categories greater than it. Additionally, the table is arranged in order of the number of vulnerabilities found. In otherwords, the first "critical" vulnerability in the table (from left to right) will have the most critical vulnerabilites out of all the hosts in that category. The first entry marked as "High" will have the most high vulnerabilities, etc.
+                                          	<br />
+                                          	<br />
+                                          	Click each link below to see detailed vulnerability data for that host.</p>
+											|REPORTINFO|
+                                        </div>
+									</section>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- Footer -->
+			<div id="footer-wrapper">
+				<footer id="footer" class="container">
+					<div class="row">
+						<div class="2u">
+							<!-- Links -->
+                            <section>
+                                <h2>Important Links</h2>	
+                                <ul class="link-list last-child">
+                                    <li><a href="http://www.synercomm.com/services/audit-assessment/">SynerComm AssureIT</a></li>
+                                    <li><a href="https://www.sans.org/critical-security-controls/">SANS Top 20 Security Controls</a></li>
+                                    <li><a href="https://benchmarks.cisecurity.org/downloads/multiform/">CIS Benchmarks</a></li>
+                                    <li><a href="https://www.owasp.org/index.php/OWASP_Top_Ten_Project">OWASP Top 10</a></li>
+                                </ul>
+                            </section>
+                        </div>
+                        <div class="4u" style="margin-top: 50px;">
+                            <section>
+                                <ul class="link-list last-child">
+                                    <li><a href="http://www.microsoft.com/en-us/download/details.aspx?displayLang=en&id=16776">Microsoft Security Compliance Manager (Recommended!)</a></li>
+                                    <li><a href="http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=12273">Microsoft Security Assessment Tool</a></li>
+                                    <li><a href="http://msdn.microsoft.com/en-us/library/cc750076.aspx">Microsoft Enterprise Security Best Practices</a></li>
+                                </ul>
+                            </section>
+                        </div>
+                        <div class="3u">
+                        <!-- Blurb -->
+                            <section>
+                                <h2>Thank you!</h2>
+                                <p>
+                                    We hope you've found this report useful. If have have any suggestions for improvement, please <a href="mailto:assureit@synercomm.com">drop us a note</a>! SynerComm's goal is to be a Trusted Advisor and Preferred IT Solutions Provider by assisting our clients to achieve a goal, solve a problem, or satisfy a need.
+                                </p>
+                            </section>
+						</div>
+                        <div class="2u" style="margin-left: 75px;">
+                            <section>
+                                <img height="135px" width="190px" src="images/vcrimage.png" />
+                            </section>
+                        </div>
+					</div>
+				</footer>
+			</div>
+
+		<!-- Copyright -->
+			<div id="copyright">
+				SynerComm 2015. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a> | Images: <a href="http://fotogrph.com">fotogrph</a>
+			</div>
+
+	</body>
+</html>
