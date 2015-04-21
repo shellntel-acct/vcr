@@ -120,6 +120,25 @@ There are two included template directories: template-cisbenchmark and template-
     4. A = All template files
 
 
+Variable Name | Template File | Description
+--- | --- | ---
+\|GENERATEDDATE\| | D | The current date
+\|REPORTINFO\| | A | The main table of data pertinent to each page.  For example, on the dashboard this is the list of IPs.
+\|TOTALFINDINGS\| | A | Total number of findings/vulns.
+\|TOTALCRITICAL\| | A | Total number of critical vulns
+\|TOTALHIGH\| | A | Total number of high vulns
+\|TOTALMEDIUM\| | A | Total number of medium vulns
+\|TOTALLOW\| | A | Total number of low vulns
+\|TOTALINFORMATIONAL\| | D, F | Total number of informational vulns
+\|TOTALCHECKS\| | D,F (CIS Template Only) | Total number of CIS checks
+\|TOTALFAILED\| | D,F (CIS Template Only) | Total number of CIS failed checks
+\|TOTALPASSED\| | D,F (CIS Template Only) | Total number of CIS passed checks
+\|TOTALERRORS\| | D,F (CIS Template Only) | Total number of CIS check errors
+\|OPERATINGSYSTEM\| | D,F (CIS Template Only) | The Operating System version.  Derived from the OperatingSystem parameter.
+\|HOST\| | F | The computer name (if available.  “Unknown” if not)
+\|COMPANYNAME\| | D | The Organization name.  Derived from the CustomerName parameter.
+
+
 ### Download Links & Contact Info
 You may download the Parse-Nessus.ps1 script and available templates above.
 If you have any questions, comments, or issues with the script, or would like to see any feature enhancements, please open an issue here.
