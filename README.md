@@ -3,8 +3,8 @@
 Vulnerability Compliance Report Tool is used to parse Nessus files into beautiful friendly html reports.
 
 ### Use Cases:
- - Security organizations looking to present clean looking vulnerability data to clients.
- - Auditors who use Nessus to run CIS benchmark scans against their Windows systems.
+ - Security organizations looking to present clean looking vulnerability data to clients
+ - Auditors who use Nessus to run CIS benchmark scans against their Windows systems
  - Pentesters looking for easier and faster ways to do their reporting  
  - Archiving vulnerability scan reports for later viewing
 
@@ -16,9 +16,9 @@ Vulnerability Compliance Report Tool is used to parse Nessus files into beautifu
     - CIS Benchmark Scan for one of the following Windows operating systems:
         - 7/8/8.1/2008/2008R2/2012/2012R2
 
-- The script and its template directories.
-- Chrome, Firefox, or Internet Explorer 11 (in non-compatibility mode).
-- A Windows machine running PowerShell v3 or higher.
+- The script and its template directories
+- Chrome, Firefox, or Internet Explorer 11 (in non-compatibility mode)
+- A Windows machine running PowerShell v3 or higher
 
 ### Instructions
 Save the script and template folder to a destination of your choosing, and ensure you have a valid .nessus file at the ready.  
@@ -46,18 +46,18 @@ Must be passed in conjunction with the –CIS parameter.  OperatingSystem is a s
 For the adventurous =).  DebugMode is a switch parameter that will print a ton of information to the screen.  Generally used for troubleshooting purposes.
 
 
-###Basic Network Scan
+### Basic Network Scan
 The most basic command would be run against a simple exported Basic Network Scan:
 
     PS C:\VCR> .\Parse-Nessus.ps1 -NessusFilePath "C:\vcr\acme.nessus" -CustomerName "Acme Corporation"
     
 Once the script is done running, it will produce a directory in the current working directory with your customer name and the date:
 
-[INSERT IMG1.PNG]
+![Imgur](http://i.imgur.com/9mZDHx8.png)
 
 Open this directory and double click the index.html file (or open in a browser of your choosing.  Chrome or Firefox preferred).  You will see a dashboard style report that is the launching point for viewing additional vulnerability on the hosts which were scanned.
 
-[INSERT IMG2.PNG]
+![Imgur](http://i.imgur.com/41Yk3jw.png)
 
 There are two ways to interact with the vulnerability data: by IP, or by Vulnerability.  
 
@@ -65,7 +65,7 @@ By IP: Scoll to the bottom of index.html (also called the Dashboard) to see a li
 
 For example, consider the following image:
 
-[INSERT IMG3.PNG]
+![Imgur](http://i.imgur.com/yzcXDsS.png)
 
 192.168.1.232 contains the most critical vulnerabilities, and 192.168.1.7 contains the least (but a least one). 192.168.1.170 contains the most high vulnerabilities, and no critical vulnerabilities. 192.168.1.6 contains the most medium vulnerabilities, and no critical or high vulnerabilities.
 
@@ -79,36 +79,47 @@ Once formatting is complete, you will be presented with a “master list” of a
 
 At any time, click “Dashboard” in the upper right navigation menu to get back to the main view.
 
+### CIS Benchmark Scans
 
-CIS Benchmark Scans
 VCR also supports reporting of Nessus CIS Benchmark scans. The biggest difference between reporting on a Basic Network Scan vs a CIS Benchmark scan is that the Basic Network Scan reports show vulnerabilities by host, whereas the CIS Benchmark report shows the checks run against each host and a “Pass/Fail” status:
-[INSERT IMG4.PNG]
+
+![Imgur](http://i.imgur.com/dmzyCYK.png)
+
 The procedure for generating the reports for a CIS Benchmark .nessus file is the same as a Basic Network Scan with a couple of important additions, specifically you must pass the –CIS switch parameter as well as the –OperatingSystem parameter.
-For example:
-PS C:\VCR> .\Parse-Nessus.ps1 -NessusFilePath "C:\vcr\acme-cis-win7.nessus" -CustomerName "Acme Corporation" -CIS -OperatingSystem Windows7
+
+#### For example:
+
+    PS C:\VCR> .\Parse-Nessus.ps1 -NessusFilePath "C:\vcr\acme-cis-win7.nessus" -CustomerName "Acme Corporation" -CIS -OperatingSystem Windows7
+
 Important to note that it’s implied that each .nessus file only targets one versions of Windows at a time.  This is generally how the CIS benchmarks are setup by default, but if you combine scans for different versions of Windows into the same .nessus file, then the script will give unpredictable results (if it works at all).
 
-Creating your own template
+### Creating your own template
+
 Though you are certainly free to use the provided templates, many users will want to customize them to their own organization/company.  This is perfectly acceptable and can be done so without permission.
+
 There are two included template directories: template-cisbenchmark and template-networkscan.  Do not change the template directory names or the script will not work.
-If simply modifying the existing templates:
-Replace the <templatedir>/images/logo.jpg file with your own.
-In the template directory, open templateByVuln.html, templateDashboard.html, and templateFindings.html and do a Find/Replace for “SynerComm”, replacing with your own organization name.
-If creating your own template
-Template directories must be named: template-cisbenchmark & template-networkscan.
-Preserve the existing template directory structure and naming conventions.
-Three template files must exist:
-templateFindings.html – This is the html page that is displayed per individual IP.
-templateDashboard.html – The main page that gets transformed to index.html.
-templateByVuln.html – The Vulnerability Report template page.
-In each of the template files, you may place the following substitution variables anywhere on the page (note, you must include the pipe character “|” before and after each variable name.  Variables are case sensitive).
-The below table lists the substitution variables and which template files the script searches for them in. In the Template File field:
-D = templateDashboard.html
-F = templateFindings.html
-V = templateByVuln.html
-A = All template files
+
+#### If simply modifying the existing templates:
+
+1. Replace the <templatedir>/images/logo.jpg file with your own
+2. In the template directory, open templateByVuln.html, templateDashboard.html, and templateFindings.html and do a Find/Replace for “SynerComm”, replacing with your own organization name
+
+#### If creating your own template:
+
+1. Template directories must be named: template-cisbenchmark & template-networkscan
+2. Preserve the existing template directory structure and naming conventions
+3. Three template files must exist:
+    1. templateFindings.html – This is the html page that is displayed per individual IP
+    2. templateDashboard.html – The main page that gets transformed to index.html
+    3. templateByVuln.html – The Vulnerability Report template page
+4. In each of the template files, you may place the following substitution variables anywhere on the page (note, you must include the pipe character “|” before and after each variable name.  Variables are case sensitive)
+5. The below table lists the substitution variables and which template files the script searches for them in In the Template File field:
+    1. D = templateDashboard.html
+    2. F = templateFindings.html
+    3. V = templateByVuln.html
+    4. A = All template files
 
 
-Download Links & Contact Info
-You may download the Parse-Nessus.ps1 script and available templates from Github.  Click here to download.
-If you have any questions, comments, or issues with the script, or would like to see any feature enhancements, please open an issue on Github.
+### Download Links & Contact Info
+You may download the Parse-Nessus.ps1 script and available templates above.
+If you have any questions, comments, or issues with the script, or would like to see any feature enhancements, please open an issue here.
