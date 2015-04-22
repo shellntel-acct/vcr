@@ -73,6 +73,8 @@ For example, consider the following image:
 
 Click each IP address to see the vulnerabilities associated with that host.  You may then click each vulnerability name to see details about that vulnerability, including description, affected port/service, and any available mitigations.
 
+*Important* The templates use jQuery to properly format that pages, and it can take a while to format larger pages. Be sure to allow the scripts to continue to run (or run at all), or the pages won't look good.
+
 At any time, click “Dashboard” in the upper right navigation menu to get back to the main view.
 
 By Vulnerability: In the upper right corner of index.html, click “Vulnerability Report”.  This report can be huge and will take a while to load (jQuery is formatting the data in the background).  If you get prompted to continue running scripts on the page, click “Yes”. 
