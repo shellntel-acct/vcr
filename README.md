@@ -19,6 +19,8 @@ Vulnerability Compliance Report Tool is used to parse Nessus files into beautifu
 - The script and its template directories
 - Chrome, Firefox, or Internet Explorer 11 (in non-compatibility mode)
 - A Windows machine running PowerShell v3 or higher
+- Note Administrator rights are not required to run Parse-Nessus.ps1
+
 
 ### Instructions
 Save the script and template folder to a destination of your choosing, and ensure you have a valid .nessus file at the ready.  
