@@ -1,6 +1,5 @@
 # Vulnerability Compliance Report Tool
-(Note Documentation uncomplete, final changes coming very soon)
-Vulnerability Compliance Report Tool is used to parse Nessus files into beautiful friendly html reports.
+Vulnerability Compliance Report Tool is used to parse Nessus files into beautiful html reports.
 
 ### Use Cases:
  - Security organizations looking to present clean looking vulnerability data to clients
