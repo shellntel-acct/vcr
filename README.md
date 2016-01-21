@@ -13,7 +13,7 @@ Vulnerability Compliance Report Tool is used to parse Nessus files into beautifu
 - The following types of Nessus scans are supported:
     - Basic Network Scan
     - CIS Benchmark Scan for one of the following Windows operating systems:
-        - 7/8/8.1/2008/2008R2/2012/2012R2
+        - 7/8/8.1/2008/2008R2/2012
 
 - The script and its template directories
 - Chrome, Firefox, or Internet Explorer 11 (in non-compatibility mode)
