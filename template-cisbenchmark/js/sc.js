@@ -64,7 +64,7 @@ function prepCisReport() {
     var patt = /^\[/;
     $("#accordion h6").each(function(index){
         if (patt.test($(this).text())) {
-            var arr = $(this).text().match(/\[[a-zA-Z\s]+\]/).sort().forEach(function(entry) {
+            var arr = $(this).text().match(/\[[a-zA-Z\s-?:?]+\]/).sort().forEach(function(entry) {
                 var text = entry.replace('[','').replace(']','');
                 if ($.inArray(text, uniques) == -1){
                     $("#selectcategory").append("<option value='" + text + "'>" + text + "</option>");
