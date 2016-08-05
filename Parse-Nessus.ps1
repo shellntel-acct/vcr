@@ -965,7 +965,9 @@ function Update-UniqueVulns($vulnname, $criticality)
 function Parse-NessusFile($path)
 {	
 	Write-Debug "Parse-NessusFile: Entered Parse-NessusFile"
-	$xreportitems = Select-Xml -Path $path -XPath "/NessusClientData_v2/Report/ReportHost"
+	$Xml=New-Object Xml
+	$Xml.Load((Convert-Path $path))
+	$xreportitems = Select-Xml -Xml $Xml -XPath "/NessusClientData_v2/Report/ReportHost"
 	Write-Debug "Parse-NessusFile: Successfully loaded xml into memory"
 	$allhosts = @()
 
@@ -1140,7 +1142,9 @@ function Parse-NessusFile($path)
 function Parse-CISNessusFile($path, $oscategory) 
 {
 	Write-Debug "Parse-CISNessusFile: Entered Parse-CISNessusFile"
-	$xreportitems = Select-Xml -Path $path -XPath "/NessusClientData_v2/Report/ReportHost"
+	$Xml=New-Object Xml
+	$Xml.Load((Convert-Path $path))
+	$xreportitems = Select-Xml -Xml $Xml -XPath "/NessusClientData_v2/Report/ReportHost"
 	Write-Debug "Parse-NessusFile: Successfully loaded xml into memory"
 	$allhosts = @()
 	
