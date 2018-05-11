@@ -52,6 +52,8 @@ is not specified, the script will look for a "template" direcotry in the current
 	- Windows2008r2
 	- Windows2012
 	- Windows2012r2
+.PARAMETER DisplayHostName
+[OPTIONAL] If supplied, report hostname instead of IP address
 
 .PARAMETER CIS
 [OPTIONAL] This parameter indicates to the script that you are targeting a CIS benchmark nessus report.
@@ -99,7 +101,10 @@ Param
   [switch]$CIS,
   
   [Parameter(Mandatory=$false)]
-  [switch]$DebugMode
+  [switch]$DebugMode,
+
+  [Parameter(Mandatory=$false)]
+  [switch]$DisplayHostName
 )
 
 # Configure a debug switch param
@@ -361,7 +366,13 @@ function Format-DashboardHtmlItemWithAlternate($hostname, $ipaddress, $reportsby
 	}
 	else
 	{
-		$html = "<td class=""$cssclass""><a href="".\reportsbyhost\$linkpath.html"">$hostname</a></td>"
+		if ($DisplayHostName)
+		{
+			$html = "<td class=""$cssclass""><a href="".\reportsbyhost\$linkpath.html"">$hostname</a></td>"
+		} else
+		{
+			$html = "<td class=""$cssclass""><a href="".\reportsbyhost\$linkpath.html"">$ipaddress</a></td>"
+		}
 	}
 	return $html
 }
@@ -379,6 +390,9 @@ function Format-DashboardHtmlReport($allhosts, $reportsbyhostfolder)
 	$html = "<table id=""tabips"">"
 	$i = 0
 	$rowmax = 6
+	if ($DisplayHostName) {
+		$rowmax = 4
+	}
 	foreach ($c in $crits) 
 	{
 		if ($c.IPAddress -ne $null)
