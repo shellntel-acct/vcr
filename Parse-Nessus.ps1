@@ -74,6 +74,9 @@ Parses a CIS Benchmark Scan which targeted Windows 7 machines.
 .NOTES
 Author: 		Jason Lang (@curi0usJack)
 Last Modified:	03/16/2015
+
+Contributions:  lansalot
+Last Modified:  11/05/2018 (Added Hostname per https://github.com/Shellntel/vcr/issues/8 and code-repetition cleanup)
 #>
 
 #Requires -Version 3.0
@@ -349,6 +352,19 @@ function Format-DashboardHtmlItem($ipaddress, $reportsbyhostfolder, $cssclass)
 	$html = "<td class=""$cssclass""><a href="".\reportsbyhost\$linkpath.html"">$ipaddress</a></td>"
 	return $html
 }
+function Format-DashboardHtmlItemWithAlternate($hostname, $ipaddress, $reportsbyhostfolder, $cssclass) 
+{
+	$linkpath = $ipaddress.Replace(".", "-")
+	if ($hostname -eq 'Unknown')
+	{
+		$html = "<td class=""$cssclass""><a href="".\reportsbyhost\$linkpath.html"">$ipaddress</a></td>"
+	}
+	else
+	{
+		$html = "<td class=""$cssclass""><a href="".\reportsbyhost\$linkpath.html"">$hostname</a></td>"
+	}
+	return $html
+}
 
 # Generate the correct html to use for the dashboard. I don't like this function. There must be a better way to do this...
 function Format-DashboardHtmlReport($allhosts, $reportsbyhostfolder)
@@ -370,7 +386,7 @@ function Format-DashboardHtmlReport($allhosts, $reportsbyhostfolder)
 			if ($i -eq 0) 
 				{ $html += "<tr>" }
 
-			$html += Format-DashboardHtmlItem $c.IPAddress $reportsbyhostfolder "critbg"
+			$html += Format-DashboardHtmlItemWithAlternate $c.hostname  $c.IPAddress $reportsbyhostfolder "critbg"
 			$i += 1
 
 			if ($i -eq $rowmax) 
@@ -378,82 +394,30 @@ function Format-DashboardHtmlReport($allhosts, $reportsbyhostfolder)
 		}
 	}
 	
-	foreach ($c in $highs) 
-	{
-		if ($c.IPAddress -ne $null)
+	$Categories = @(
+		"highs:highbg"
+		"meds:medbg"
+		"lows:lowbg"
+		"infos:infobg"
+		"unsures:dunnobg"
+	)
+	ForEach ($Category in $Categories) {
+		foreach ($c in ((Get-Variable $Category.Split(":")[0]).value ) )
 		{
-			if ($i -eq 0) 
-				{ $html += "<tr>" }
-
-			$html += Format-DashboardHtmlItem $c.IPAddress $reportsbyhostfolder "highbg"
-			$i += 1
-
-			if ($i -eq $rowmax) 
-				{$html += "</tr>"; $i = 0 }
-		}
-	}
+			if ($c.IPAddress -ne $null)
+			{
+				if ($i -eq 0) 
+					{ $html += "<tr>" }
 	
-	#Ugh. I hate repeating code like this. Open to suggestions...
-	foreach ($c in $meds) 
-	{
-		if ($c.IPAddress -ne $null)
-		{
-			if ($i -eq 0) 
-				{ $html += "<tr>" }
-
-			$html += Format-DashboardHtmlItem $c.IPAddress $reportsbyhostfolder "medbg"
-			$i += 1
-
-			if ($i -eq $rowmax) 
-				{$html += "</tr>"; $i = 0 }
-		}
-	}
+				$html += Format-DashboardHtmlItemWithAlternate $c.hostname $c.IPAddress $reportsbyhostfolder $Category.Split(":")[1]
+				$i += 1
 	
-	foreach ($c in $lows) 
-	{
-		if ($c.IPAddress -ne $null)
-		{
-			if ($i -eq 0) 
-				{ $html += "<tr>" }
-
-			$html += Format-DashboardHtmlItem $c.IPAddress $reportsbyhostfolder "lowbg"
-			$i += 1
-
-			if ($i -eq $rowmax) 
-				{$html += "</tr>"; $i = 0 }
+				if ($i -eq $rowmax) 
+					{$html += "</tr>"; $i = 0 }
+			}
 		}
-	}
-	
-	foreach ($c in $infos) 
-	{
-		if ($c.IPAddress -ne $null)
-		{
-			if ($i -eq 0) 
-				{ $html += "<tr>" }
 			
-			$html += Format-DashboardHtmlItem $c.IPAddress $reportsbyhostfolder "infobg"
-			$i += 1
-
-			if ($i -eq $rowmax) 
-				{$html += "</tr>"; $i = 0 }
-		}
 	}
-	
-	foreach ($c in $unsures) 
-	{
-		if ($c.IPAddress -ne $null)
-		{
-			if ($i -eq 0) 
-				{ $html += "<tr>" }
-			
-			$html += Format-DashboardHtmlItem $c.IPAddress $reportsbyhostfolder "dunnobg"
-			$i += 1
-
-			if ($i -eq $rowmax) 
-				{$html += "</tr>"; $i = 0 }
-		}
-	}
-	
 	$html += "</table>"
 	return $html
 }
@@ -636,7 +600,7 @@ function Create-HostReport($targethost, $foldername, $hosthtml)
 	$findingsdata_master = Get-Content $findingstemplate 
 	
 	### Write Findings HTML ###
-	Write-Host "[*] Creating html report for" $targethost.IPAddress
+	Write-Host "[*] Creating html report for $($targethost.hostname) ($($targethost.IPAddress))"
 	$strhtml = ""
 	$completedvulns = @()
 	
@@ -995,7 +959,10 @@ function Parse-NessusFile($path)
 					$hostinfo | Add-Member –MemberType NoteProperty -Name IPAddress -Value $prop.'#text' 
 					$ip = $prop.'#text'
 				}
-
+				if ($prop.name -eq "hostname")
+				{
+					$Hostinfo.Hostname = $prop.'#text' 
+				}
 				if ($prop.name -eq "operating-system") 
 					{ $hostinfo.OperatingSystem = $prop.'#text' }
 		}
@@ -1352,7 +1319,6 @@ else
 	# Make a duplicate of the html template directory
 	Write-Host "[*] Copying html template to $newfolder"
 	Copy-Item $htmltemplatedir $newfolder -Recurse 
-
 	# Create an html report for each host
 	if ($createreportsbyhost -eq $true) 
 	{
